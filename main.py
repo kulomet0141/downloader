@@ -38,3 +38,6 @@ def main():
     downloader = Downloader(bot_token, args.server, args.database)
     filters = get_filter(args.filter)
     asyncio.run(downloader.run(filters, args.date_from, args.date_to))
+
+if __name__ == "__main__":
+    main()

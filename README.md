@@ -110,7 +110,7 @@ V textu zpráv jsou některé věci nahrazovány následovně:
 
 ## Opt-out
 Script počítá s přístupem k databázi obsahující id uživatelů, kteří si nepřejí, aby jejich zprávy byly zahrnuty do stažených dat.
-Zprávy od těchto uživatelů jsou při stahování přeskočeny.
+Zprávy a reakce na zprávy od těchto uživatelů jsou při stahování přeskočeny.
 
 ---
 

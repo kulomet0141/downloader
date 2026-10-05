@@ -106,6 +106,14 @@ class Downloader:
 
                     message_id = cursor.lastrowid
                     for reaction in message.reactions:
+                        reaction_count = reaction.count
+                        async for user in reaction.users(limit=None):
+                            if str(user.id) in opted_out:
+                                reaction_count -= 1
+
+                        if reaction_count <= 0:
+                            continue
+
                         cursor.execute(
                             """
                             INSERT INTO reactions (message_id, reaction, count)
@@ -114,7 +122,7 @@ class Downloader:
                             (
                                 message_id,
                                 prep_emoji(str(reaction.emoji)),
-                                reaction.count,
+                                reaction_count,
                             ),
                         )
                 database.commit()
